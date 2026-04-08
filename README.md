@@ -1,0 +1,2 @@
+# PAMI_G474
+PAMI basé sur carte ELECTROBOT STM32G474
