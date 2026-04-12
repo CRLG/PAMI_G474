@@ -1,0 +1,9 @@
+[submodule "ext/libSTM32G4xx"]
+	path = ext/libSTM32G4xx
+	url = https://github.com/CRLG/libSTM32G4xx
+[submodule "ext/CppRobLibSTM32"]
+	path = ext/CppRobLibSTM32
+	url = https://github.com/CRLG/CppRobLibSTM32
+[submodule "ext/CppRobLib"]
+	path = ext/CppRobLib
+	url = https://github.com/CRLG/CppRobLib
