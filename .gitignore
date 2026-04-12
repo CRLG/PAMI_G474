@@ -11,6 +11,12 @@
 *.gch
 *.pch
 
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
@@ -31,10 +37,16 @@
 *.out
 *.app
 
-# Directory
-Debug/
-Release/
+# debug information files
+*.dwo
 
+# qt
+*.pro.user
+
+# Eclipse
+.settings
 *.launch
-mx.scratch
+
+Release
+Debug
 
