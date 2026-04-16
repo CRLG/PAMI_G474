@@ -47,16 +47,18 @@ void CGlobale::Run(void)
    m_lcd.Init();
    m_lcd.GotoXY (20,0);
    m_lcd.Puts ("CRLG", &Font_16x26, SSD1306::SSD1306_COLOR_WHITE);
-   //m_lcd.ToggleInvert();
    m_lcd.GotoXY (30, 40);
    m_lcd.Puts ("PAMI", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
    m_lcd.UpdateScreen();
 
    // Bandeau de LED
    m_leds_rgb.init();
-   m_leds_rgb.setColor(1,  0xFF0000, 2);
-   m_leds_rgb.setColor(2,  0x00FF00, 2);
-   m_leds_rgb.setColor(3,  0x0000FF, 2);
+   int intensity = 2;
+   m_leds_rgb.setColor(1, RGBColor::RED, intensity);
+   m_leds_rgb.setColor(2, RGBColor::GREEN, intensity);
+   m_leds_rgb.setColor(3, RGBColor::BLUE, intensity);
+   m_leds_rgb.setColor(4, RGBColor::OLIVE, intensity);
+   m_leds_rgb.setColor(5, RGBColor::PURPLE, intensity);
 
    //m_telemetre.init();
    m_asservissement.Init();
