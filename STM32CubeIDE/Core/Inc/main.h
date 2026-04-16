@@ -91,10 +91,10 @@ void Error_Handler(void);
 #define Eana3_GPIO_Port GPIOC
 #define Eana4_Pin GPIO_PIN_1
 #define Eana4_GPIO_Port GPIOC
-#define Mot3_Sens1_Pin GPIO_PIN_2
-#define Mot3_Sens1_GPIO_Port GPIOC
-#define Mot3_Sens2_Pin GPIO_PIN_3
+#define Mot3_Sens2_Pin GPIO_PIN_2
 #define Mot3_Sens2_GPIO_Port GPIOC
+#define Mot3_Sens1_Pin GPIO_PIN_3
+#define Mot3_Sens1_GPIO_Port GPIOC
 #define Eana1_Pin GPIO_PIN_0
 #define Eana1_GPIO_Port GPIOA
 #define Servo3_PWM_Pin GPIO_PIN_1
@@ -109,8 +109,8 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define Mot1_PWM_Pin GPIO_PIN_6
 #define Mot1_PWM_GPIO_Port GPIOA
-#define Mot1_Sens1_Pin GPIO_PIN_7
-#define Mot1_Sens1_GPIO_Port GPIOA
+#define Mot1_Sens2_Pin GPIO_PIN_7
+#define Mot1_Sens2_GPIO_Port GPIOA
 #define Mot3_PWM_Pin GPIO_PIN_0
 #define Mot3_PWM_GPIO_Port GPIOB
 #define Led1_Pin GPIO_PIN_1
@@ -163,8 +163,8 @@ void Error_Handler(void);
 #define Mot2_Sens1_GPIO_Port GPIOB
 #define Mot2_Sens2_Pin GPIO_PIN_5
 #define Mot2_Sens2_GPIO_Port GPIOB
-#define Mot1_Sens2_Pin GPIO_PIN_6
-#define Mot1_Sens2_GPIO_Port GPIOB
+#define Mot1_Sens1_Pin GPIO_PIN_6
+#define Mot1_Sens1_GPIO_Port GPIOB
 #define Cde_Mosfet_Pin GPIO_PIN_7
 #define Cde_Mosfet_GPIO_Port GPIOB
 #define Etor3_Pin GPIO_PIN_9

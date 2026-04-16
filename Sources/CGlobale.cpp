@@ -2,6 +2,15 @@
     \brief Classe qui contient toute l'application
 */
 #include "CGlobale.h"
+#include "ee.h"
+
+typedef struct {
+	unsigned int val1;
+	unsigned short val2;
+	char val3;
+}tEEP;
+
+tEEP eep_val;
 
 //___________________________________________________________________________
 /*!
@@ -36,6 +45,11 @@ CGlobale::~CGlobale()
 */
 void CGlobale::Run(void)
 {
+
+	// Assure que les moteurs soient au repos au démarrage
+	CdeMoteur(1, 0);
+	CdeMoteur(2, 0);
+
     // Lecture des paramètres EEPROM
     readEEPROM();
 
@@ -85,5 +99,12 @@ void CGlobale::Run(void)
 */
 void CGlobale::readEEPROM()
 {
+   ee_init(&eep_val, sizeof(tEEP));
+
+   ee_read();
+   /*
+   eep_val.val1 = 0x12345678;
+   eep_val.val2 = 0x9876;
+   eep_val.val3 = -5;*/
 
 }
