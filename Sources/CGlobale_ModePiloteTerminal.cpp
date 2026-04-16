@@ -67,14 +67,14 @@ void CGlobale::SequenceurModePiloteTerminal(void)
     cpt20msec++;
     if (cpt20msec >= TEMPO_20msec) {
         cpt20msec = 0;
-
+/*
         HAL_GPIO_WritePin(Mot1_Sens1_GPIO_Port, Mot1_Sens1_Pin, (GPIO_PinState)test_Mot1_Sens1);
         HAL_GPIO_WritePin(Mot1_Sens2_GPIO_Port, Mot1_Sens2_Pin, (GPIO_PinState)test_Mot1_Sens2);
         HAL_GPIO_WritePin(Mot2_Sens1_GPIO_Port, Mot2_Sens1_Pin, (GPIO_PinState)test_Mot2_Sens1);
         HAL_GPIO_WritePin(Mot2_Sens2_GPIO_Port, Mot2_Sens2_Pin, (GPIO_PinState)test_Mot2_Sens2);
         HAL_GPIO_WritePin(Mot3_Sens1_GPIO_Port, Mot3_Sens1_Pin, (GPIO_PinState)test_Mot3_Sens1);
         HAL_GPIO_WritePin(Mot3_Sens2_GPIO_Port, Mot3_Sens2_Pin, (GPIO_PinState)test_Mot3_Sens2);
-
+*/
         //HAL_GPIO_WritePin(Led1_GPIO_Port, Led1_Pin, (GPIO_PinState)test_Led1);
         //HAL_GPIO_WritePin(Led2_GPIO_Port, Led2_Pin, (GPIO_PinState)test_Led2);
         HAL_GPIO_WritePin(Cde_Mosfet_GPIO_Port, Cde_Mosfet_Pin, (GPIO_PinState)test_CdeMosfet);

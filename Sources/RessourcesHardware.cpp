@@ -48,12 +48,12 @@ void CdeMoteur(unsigned char num_moteur, float cde_pourcent)
            else if (cde_pourcent > 0) {
                HAL_GPIO_WritePin(Mot1_Sens1_GPIO_Port, Mot1_Sens1_Pin, GPIO_PIN_SET);  // sens
                HAL_GPIO_WritePin(Mot1_Sens2_GPIO_Port, Mot1_Sens2_Pin, GPIO_PIN_SET);  // signal break
-               __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, htim3.Init.Period/100. * (100+cde_pourcent));
+               __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, htim3.Init.Period/100. * (100-cde_pourcent));
            }
            else {
                HAL_GPIO_WritePin(Mot1_Sens1_GPIO_Port, Mot1_Sens1_Pin, GPIO_PIN_RESET);// sens
                HAL_GPIO_WritePin(Mot1_Sens2_GPIO_Port, Mot1_Sens2_Pin, GPIO_PIN_SET);  // signal break
-               __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, htim3.Init.Period/100. * (100-cde_pourcent));
+               __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, htim3.Init.Period/100. * (100+cde_pourcent));
            }
         break;
     // ___________________________________________
