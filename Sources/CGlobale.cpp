@@ -42,13 +42,21 @@ void CGlobale::Run(void)
     // Attends la montée de toutes les alimentation et l'initialisation de l'écran
     // Temps nécessaire en pratique pour que l'écran tactile ai fini de démarrer
     // avant de commencer à  lui en envoyer des messages (et d'en recevoir)
-    //wait_ms(3000);
+   HAL_Delay(300);
+
    m_lcd.Init();
    m_lcd.GotoXY (20,0);
    m_lcd.Puts ("CRLG", &Font_16x26, SSD1306::SSD1306_COLOR_WHITE);
+   //m_lcd.ToggleInvert();
    m_lcd.GotoXY (30, 40);
    m_lcd.Puts ("PAMI", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
    m_lcd.UpdateScreen();
+
+   // Bandeau de LED
+   m_leds_rgb.init();
+   m_leds_rgb.setColor(1,  0xFF0000, 2);
+   m_leds_rgb.setColor(2,  0x00FF00, 2);
+   m_leds_rgb.setColor(3,  0x0000FF, 2);
 
    //m_telemetre.init();
    m_asservissement.Init();

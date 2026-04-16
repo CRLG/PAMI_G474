@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
+extern DMA_HandleTypeDef hdma_uart4_tx;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -341,6 +342,27 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     GPIO_InitStruct.Alternate = GPIO_AF5_UART4;
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
+    /* UART4 DMA Init */
+    /* UART4_TX Init */
+    hdma_uart4_tx.Instance = DMA1_Channel1;
+    hdma_uart4_tx.Init.Request = DMA_REQUEST_UART4_TX;
+    hdma_uart4_tx.Init.Direction = DMA_MEMORY_TO_PERIPH;
+    hdma_uart4_tx.Init.PeriphInc = DMA_PINC_DISABLE;
+    hdma_uart4_tx.Init.MemInc = DMA_MINC_ENABLE;
+    hdma_uart4_tx.Init.PeriphDataAlignment = DMA_PDATAALIGN_BYTE;
+    hdma_uart4_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
+    hdma_uart4_tx.Init.Mode = DMA_NORMAL;
+    hdma_uart4_tx.Init.Priority = DMA_PRIORITY_LOW;
+    if (HAL_DMA_Init(&hdma_uart4_tx) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    __HAL_LINKDMA(huart,hdmatx,hdma_uart4_tx);
+
+    /* UART4 interrupt Init */
+    HAL_NVIC_SetPriority(UART4_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(UART4_IRQn);
   /* USER CODE BEGIN UART4_MspInit 1 */
 
   /* USER CODE END UART4_MspInit 1 */
@@ -432,6 +454,11 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     */
     HAL_GPIO_DeInit(GPIOC, RS232_1_TX_Pin|RS232_1_RX_Pin);
 
+    /* UART4 DMA DeInit */
+    HAL_DMA_DeInit(huart->hdmatx);
+
+    /* UART4 interrupt DeInit */
+    HAL_NVIC_DisableIRQ(UART4_IRQn);
   /* USER CODE BEGIN UART4_MspDeInit 1 */
 
   /* USER CODE END UART4_MspDeInit 1 */

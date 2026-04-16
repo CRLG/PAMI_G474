@@ -74,9 +74,10 @@ void CGlobale::SequenceurModeAutonome(void)
     // ______________________________
     cpt50msec++;
     if (cpt50msec >= TEMPO_50msec) {
-
         cpt50msec = 0;
-    }
+
+        m_leds_rgb.periodicTask();
+}
 
     // ______________________________
     cpt100msec++;

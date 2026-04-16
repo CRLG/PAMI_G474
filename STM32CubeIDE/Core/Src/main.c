@@ -47,6 +47,7 @@ I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef hlpuart1;
 UART_HandleTypeDef huart4;
 UART_HandleTypeDef huart5;
+DMA_HandleTypeDef hdma_uart4_tx;
 
 SPI_HandleTypeDef hspi2;
 
@@ -62,6 +63,7 @@ TIM_HandleTypeDef htim8;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_UART4_Init(void);
 static void MX_UART5_Init(void);
 static void MX_I2C2_Init(void);
@@ -110,6 +112,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_UART4_Init();
   MX_UART5_Init();
   MX_I2C2_Init();
@@ -264,7 +267,7 @@ static void MX_I2C2_Init(void)
 
   /* USER CODE END I2C2_Init 1 */
   hi2c2.Instance = I2C2;
-  hi2c2.Init.Timing = 0x40B285C2;
+  hi2c2.Init.Timing = 0x40621236;
   hi2c2.Init.OwnAddress1 = 0;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -359,16 +362,17 @@ static void MX_UART4_Init(void)
 
   /* USER CODE END UART4_Init 1 */
   huart4.Instance = UART4;
-  huart4.Init.BaudRate = 115200;
+  huart4.Init.BaudRate = 8000000;
   huart4.Init.WordLength = UART_WORDLENGTH_8B;
   huart4.Init.StopBits = UART_STOPBITS_1;
   huart4.Init.Parity = UART_PARITY_NONE;
-  huart4.Init.Mode = UART_MODE_TX_RX;
+  huart4.Init.Mode = UART_MODE_TX;
   huart4.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart4.Init.OverSampling = UART_OVERSAMPLING_16;
   huart4.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   huart4.Init.ClockPrescaler = UART_PRESCALER_DIV1;
-  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  huart4.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_TXINVERT_INIT;
+  huart4.AdvancedInit.TxPinLevelInvert = UART_ADVFEATURE_TXINV_ENABLE;
   if (HAL_UART_Init(&huart4) != HAL_OK)
   {
     Error_Handler();
@@ -699,6 +703,23 @@ static void MX_TIM8_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMAMUX1_CLK_ENABLE();
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -717,7 +738,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, Mot3_Sens1_Pin|Mot3_Sens2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, Mot3_Sens1_Pin|Mot3_Sens2_Pin|Stor2_Pin|Stor1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, LD2_Pin|Mot1_Sens1_Pin, GPIO_PIN_RESET);
@@ -732,8 +753,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Mot3_Sens1_Pin Mot3_Sens2_Pin */
-  GPIO_InitStruct.Pin = Mot3_Sens1_Pin|Mot3_Sens2_Pin;
+  /*Configure GPIO pins : Mot3_Sens1_Pin Mot3_Sens2_Pin Stor2_Pin Stor1_Pin */
+  GPIO_InitStruct.Pin = Mot3_Sens1_Pin|Mot3_Sens2_Pin|Stor2_Pin|Stor1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -754,12 +775,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : Etor2_Pin Etor1_Pin */
-  GPIO_InitStruct.Pin = Etor2_Pin|Etor1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Etor3_Pin */
   GPIO_InitStruct.Pin = Etor3_Pin;

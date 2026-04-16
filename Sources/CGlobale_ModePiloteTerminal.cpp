@@ -60,7 +60,7 @@ void CGlobale::SequenceurModePiloteTerminal(void)
     if (cpt10msec >= TEMPO_10msec) {
         cpt10msec = 0;
         unsigned char rxdata[2], txdata[2]= {0xF0, 0x69};
-        HAL_SPI_TransmitReceive(&hspi2, txdata, rxdata, 2, 100);
+        //HAL_SPI_TransmitReceive(&hspi2, txdata, rxdata, 2, 100);
     }
 
     // ______________________________
@@ -79,8 +79,9 @@ void CGlobale::SequenceurModePiloteTerminal(void)
         //HAL_GPIO_WritePin(Led2_GPIO_Port, Led2_Pin, (GPIO_PinState)test_Led2);
         HAL_GPIO_WritePin(Cde_Mosfet_GPIO_Port, Cde_Mosfet_Pin, (GPIO_PinState)test_CdeMosfet);
 
-        test_Etor1 = HAL_GPIO_ReadPin(Etor1_GPIO_Port, Etor1_Pin);
-        test_Etor2 = HAL_GPIO_ReadPin(Etor2_GPIO_Port, Etor2_Pin);
+        HAL_GPIO_WritePin(Stor1_GPIO_Port, Stor1_Pin, (GPIO_PinState)test_Stor1);
+        HAL_GPIO_WritePin(Stor2_GPIO_Port, Stor2_Pin, (GPIO_PinState)test_Stor2);
+
         test_Etor3 = HAL_GPIO_ReadPin(Etor3_GPIO_Port, Etor3_Pin);
 
         test_Eana1 = readAnalogVolt(1);
@@ -102,6 +103,8 @@ void CGlobale::SequenceurModePiloteTerminal(void)
         toggleLedBuiltin();
         //printf("%d\n\r", HAL_GetTick());
         HAL_GPIO_TogglePin(Led1_GPIO_Port, Led1_Pin);
+
+        m_leds_rgb.periodicTask();
     }
 
     // ______________________________

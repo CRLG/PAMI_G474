@@ -51,7 +51,7 @@ extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim8;
-
+extern DMA_HandleTypeDef hdma_uart4_tx;
 
 extern volatile uint8_t tick;
 /* USER CODE END ET */
@@ -133,10 +133,10 @@ void Error_Handler(void);
 #define Codeur2_A_GPIO_Port GPIOC
 #define Codeur2_B_Pin GPIO_PIN_7
 #define Codeur2_B_GPIO_Port GPIOC
-#define Etor2_Pin GPIO_PIN_8
-#define Etor2_GPIO_Port GPIOC
-#define Etor1_Pin GPIO_PIN_9
-#define Etor1_GPIO_Port GPIOC
+#define Stor2_Pin GPIO_PIN_8
+#define Stor2_GPIO_Port GPIOC
+#define Stor1_Pin GPIO_PIN_9
+#define Stor1_GPIO_Port GPIOC
 #define SPI_MISO_Pin GPIO_PIN_10
 #define SPI_MISO_GPIO_Port GPIOA
 #define Codeur1_A_Pin GPIO_PIN_11

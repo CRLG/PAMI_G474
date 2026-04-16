@@ -11,6 +11,7 @@ extern "C" {
 #include "main.h"
 
 #define I2C_HDL_ELECTROBOT hi2c2
+#define UART_HDL_WS2812 huart4
 #define I2C_DEFAULT_TIMEOUT (100)
 
 #define CODEUR_ROUE (CCodeurs::CODEUR_2)

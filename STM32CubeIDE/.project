@@ -237,6 +237,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Sources/ssd1306.cpp</locationURI>
 		</link>
 		<link>
+			<name>Sources/ws2812b.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Sources/ws2812b.cpp</locationURI>
+		</link>
+		<link>
 			<name>CppRobLib/ConsoleInteractiveMenu/console_interaction.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/ext/CppRobLib/ConsoleInteractiveMenu/console_interaction.cpp</locationURI>

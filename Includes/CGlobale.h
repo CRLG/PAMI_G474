@@ -13,6 +13,7 @@
 #include "CAsservissement.h"
 #include "CTelemetre.h"
 #include "OTOS_XYTeta.h"
+#include "ws2812b.h"
 
 
 typedef enum {
@@ -67,6 +68,9 @@ public :
     //CTelemetre m_telemetre;
     OtosXYTeta m_otos_xyteta;
 
+    //! Bandeau de LED
+    WS2812b m_leds_rgb;
+
 
     // Pour les tests unitaires en mode terminal
     bool test_Mot1_Sens1;
@@ -75,8 +79,8 @@ public :
     bool test_Mot2_Sens2;
     bool test_Mot3_Sens1;
     bool test_Mot3_Sens2;
-    bool test_Etor1;
-    bool test_Etor2;
+    bool test_Stor1;
+    bool test_Stor2;
     bool test_Etor3;
     bool test_Led1;
     bool test_Led2;

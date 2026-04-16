@@ -39,6 +39,8 @@ int main_app(void)
     HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);	// Codeur2
     HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_2);
 
+    // Bandeau de LED
+    HAL_DMA_Init(&hdma_uart4_tx);
 
     // Redirection du printf vers l'UART2
     RetargetInit(&hlpuart1);
