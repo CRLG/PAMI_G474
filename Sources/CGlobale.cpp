@@ -2,15 +2,6 @@
     \brief Classe qui contient toute l'application
 */
 #include "CGlobale.h"
-#include "ee.h"
-
-typedef struct {
-	unsigned int val1;
-	unsigned short val2;
-	char val3;
-}tEEP;
-
-tEEP eep_val;
 
 //___________________________________________________________________________
 /*!
@@ -74,7 +65,6 @@ void CGlobale::Run(void)
    m_leds_rgb.setColor(4, RGBColor::OLIVE, intensity);
    m_leds_rgb.setColor(5, RGBColor::PURPLE, intensity);
 
-   //m_telemetre.init();
    m_asservissement.Init();
 
    // Télémètre VL53
@@ -102,12 +92,4 @@ void CGlobale::Run(void)
 */
 void CGlobale::readEEPROM()
 {
-   ee_init(&eep_val, sizeof(tEEP));
-
-   ee_read();
-   /*
-   eep_val.val1 = 0x12345678;
-   eep_val.val2 = 0x9876;
-   eep_val.val3 = -5;*/
-
 }
