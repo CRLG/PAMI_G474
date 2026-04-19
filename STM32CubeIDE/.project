@@ -72,6 +72,11 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
+			<name>CppRobLib/Servomoteurs</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
 			<name>CppRobLib/VL53L0x</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -207,6 +212,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Sources/CRoues.cpp</locationURI>
 		</link>
 		<link>
+			<name>Sources/CServomoteurs.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Sources/CServomoteurs.cpp</locationURI>
+		</link>
+		<link>
 			<name>Sources/CTelemetres.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Sources/CTelemetres.cpp</locationURI>
@@ -295,6 +305,16 @@
 			<name>CppRobLib/OtosSparkfun_XYTeta/OTOS_XYTeta_Base.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/ext/CppRobLib/OtosSparkfun_XYTeta/OTOS_XYTeta_Base.h</locationURI>
+		</link>
+		<link>
+			<name>CppRobLib/Servomoteurs/CServomoteursBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/ext/CppRobLib/Servomoteurs/CServomoteursBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>CppRobLib/Servomoteurs/CServomoteursBase.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/ext/CppRobLib/Servomoteurs/CServomoteursBase.h</locationURI>
 		</link>
 		<link>
 			<name>CppRobLib/VL53L0x/vl53l0x_base.cpp</name>

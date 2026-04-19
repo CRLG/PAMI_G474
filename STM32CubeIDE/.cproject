@@ -43,6 +43,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.116823726" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -71,6 +72,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1055030403" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -99,6 +101,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.810225001" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>
@@ -170,6 +173,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.1667452345" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -197,6 +201,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.785854238" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -224,6 +229,7 @@
 									<listOptionValue builtIn="false" value="../../ext/CppRobLib/common-rob/Modelia"/>
 									<listOptionValue builtIn="false" value="../../Modelia"/>
 									<listOptionValue builtIn="false" value="../../ext/CppRobLibSTM32/VL53L0x"/>
+									<listOptionValue builtIn="false" value="../../ext/CppRobLib/Servomoteurs"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.1750062674" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>

@@ -10,6 +10,7 @@
 #include "CCodeurs.h"
 #include "CRoues.h"
 #include "CMoteurs.h"
+#include "CServomoteurs.h"
 #include "CAsservissement.h"
 #include "CTelemetre.h"
 #include "OTOS_XYTeta.h"
@@ -64,6 +65,8 @@ public :
     CRoues m_roues;
     //! Gestion des moteurs
     CMoteurs m_moteurs;
+    //! Gestion des servomoteurs
+    CServomoteurs m_servos;
 
     CAsservissement m_asservissement;
     //CTelemetre m_telemetre;
