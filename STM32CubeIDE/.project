@@ -207,9 +207,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Sources/CRoues.cpp</locationURI>
 		</link>
 		<link>
-			<name>Sources/CTelemetre.cpp</name>
+			<name>Sources/CTelemetres.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Sources/CTelemetre.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Sources/CTelemetres.cpp</locationURI>
 		</link>
 		<link>
 			<name>Sources/OTOS_XYTeta.cpp</name>
@@ -235,6 +235,11 @@
 			<name>Sources/ssd1306.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Sources/ssd1306.cpp</locationURI>
+		</link>
+		<link>
+			<name>Sources/vl53l0xMulti.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Sources/vl53l0xMulti.cpp</locationURI>
 		</link>
 		<link>
 			<name>Sources/ws2812b.cpp</name>

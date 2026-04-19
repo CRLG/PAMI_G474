@@ -41,6 +41,7 @@ void CGlobale::SequenceurModePiloteTerminal(void)
     static unsigned int cpt1msec = 0;
     static unsigned int cpt10msec = 0;
     static unsigned int cpt20msec = 0;
+    static unsigned int cpt34msec = 0;
     static unsigned int cpt50msec = 0;
     static unsigned int cpt100msec = 0;
     static unsigned int cpt200msec = 0;
@@ -79,8 +80,8 @@ void CGlobale::SequenceurModePiloteTerminal(void)
         //HAL_GPIO_WritePin(Led2_GPIO_Port, Led2_Pin, (GPIO_PinState)test_Led2);
         HAL_GPIO_WritePin(Cde_Mosfet_GPIO_Port, Cde_Mosfet_Pin, (GPIO_PinState)test_CdeMosfet);
 
-        HAL_GPIO_WritePin(Stor1_GPIO_Port, Stor1_Pin, (GPIO_PinState)test_Stor1);
-        HAL_GPIO_WritePin(Stor2_GPIO_Port, Stor2_Pin, (GPIO_PinState)test_Stor2);
+        //HAL_GPIO_WritePin(Stor1_GPIO_Port, Stor1_Pin, (GPIO_PinState)test_Stor1);
+        //HAL_GPIO_WritePin(Stor2_GPIO_Port, Stor2_Pin, (GPIO_PinState)test_Stor2);
 
         test_Etor3 = HAL_GPIO_ReadPin(Etor3_GPIO_Port, Etor3_Pin);
 
@@ -89,12 +90,26 @@ void CGlobale::SequenceurModePiloteTerminal(void)
         test_Eana3 = readAnalogVolt(3);
         test_Eana4 = readAnalogVolt(4);
 
+        test_codeurs[0]= m_codeurs.m_CumulCodeurPosition1;
+        test_codeurs[1]= m_codeurs.m_CumulCodeurPosition2;
+
         CdeServo(1, test_Servo1);
         CdeServo(2, test_Servo2);
         CdeServo(3, test_Servo3);
         CdeServo(4, test_Servo4);
     }
 
+    // ______________________________
+    cpt34msec++;
+    if (cpt34msec >= TEMPO_34msec) {
+        cpt34msec = 0;
+
+        m_telemetres.periodicTask();
+        test_telemetres[0] = m_telemetres.getDistanceAVD();
+        test_telemetres[1] = m_telemetres.getDistanceARD();
+        m_leds_rgb.setColor(0, RGBColor::RED, test_telemetres[0]/100);
+        m_leds_rgb.setColor(1, RGBColor::BLUE, test_telemetres[1]/100);
+    }
 
     // ______________________________
     cpt50msec++;

@@ -77,6 +77,9 @@ void CGlobale::Run(void)
    //m_telemetre.init();
    m_asservissement.Init();
 
+   // Télémètre VL53
+   m_telemetres.init();
+
     switch(ModeFonctionnement) {
     case MODE_AUTONOME : 			ModeAutonome();			break;
     case MODE_PILOTE_LABOTBOX : 	ModePiloteLaBotBox();	break;

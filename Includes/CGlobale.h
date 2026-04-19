@@ -14,7 +14,7 @@
 #include "CTelemetre.h"
 #include "OTOS_XYTeta.h"
 #include "ws2812b.h"
-
+#include "CTelemetres.h"
 
 typedef enum {
     MODE_AUTONOME = 0,
@@ -29,6 +29,7 @@ typedef enum {
 #define TEMPO_5msec     (5/PERIODE_TICK)
 #define TEMPO_10msec    (10/PERIODE_TICK)
 #define TEMPO_20msec    (20/PERIODE_TICK)
+#define TEMPO_34msec    (34/PERIODE_TICK)
 #define TEMPO_50msec    (50/PERIODE_TICK)
 #define TEMPO_100msec   (100/PERIODE_TICK)
 #define TEMPO_200msec   (200/PERIODE_TICK)
@@ -71,6 +72,8 @@ public :
     //! Bandeau de LED
     WS2812b m_leds_rgb;
 
+    //! Télémètres VL53
+    CTelemetres m_telemetres;
 
     // Pour les tests unitaires en mode terminal
     bool test_Mot1_Sens1;
@@ -94,6 +97,10 @@ public :
     int test_Servo2;
     int test_Servo3;
     int test_Servo4;
+
+    signed long test_codeurs[2];
+
+    float test_telemetres[VL53_COUNT];
 
 private : 
 
