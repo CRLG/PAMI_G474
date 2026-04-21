@@ -16,9 +16,6 @@ void SM_OutputsInterface::stopAll()
     // TODO : voir pour arrêter aussi tous les servos
     // Arrêter tous les moteurs, servos et autres actionneurs
     Application.m_asservissement.CommandeManuelle(0, 0);
-    //Application.m_asservissement_chariot.Stop_Chariot();
-    Application.m_power_electrobot.setAllOutputs(0);
-    //Application.m_kmar.stop();
 }
 
 // Ces méthodes permettent de simplifier l'écriture des machines d'état
@@ -44,4 +41,3 @@ void SM_OutputsInterface::setPosition_XYTeta_sym(float x, float y, float teta)
     if (Application.m_modelia.m_datas_interface.inverse_consignes_XYTeta) inv = -1;
     Application.m_asservissement.setPosition_XYTeta(x, y*inv, teta*inv);
 }
-

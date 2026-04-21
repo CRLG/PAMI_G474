@@ -16,8 +16,14 @@
 */
 void CGlobale::ModeAutonome(void)
 {
+	m_modelia.init();
+	m_modelia.setStrategie(STRATEGIE_01);
+
     while(1) {
-        SequenceurModeAutonome();
+        if (tick) {
+            tick = 0;
+            SequenceurModeAutonome();
+        }
     }
 }
 
@@ -34,6 +40,7 @@ void CGlobale::SequenceurModeAutonome(void)
     static unsigned int cpt5msec = 0;
     static unsigned int cpt10msec = 0;
     static unsigned int cpt20msec = 0;
+    static unsigned int cpt34msec = 0;
     static unsigned int cpt50msec = 0;
     static unsigned int cpt100msec = 0;
     static unsigned int cpt200msec = 0;
@@ -57,8 +64,6 @@ void CGlobale::SequenceurModeAutonome(void)
     cpt10msec++;
     if (cpt10msec >= TEMPO_10msec) {
         cpt10msec = 0;
-
-        //m_LaBotBox.Execute();
     }
 
     // ______________________________
@@ -67,9 +72,27 @@ void CGlobale::SequenceurModeAutonome(void)
         cpt20msec = 0;
 
         toggleLedBuiltin();
-        //m_telemetre.periodicCall();
+        HAL_GPIO_TogglePin(Led1_GPIO_Port, Led1_Pin);
+
+        // Execute un pas de calcul du modele
+        m_modelia.step();
+
+        m_servos.periodicCall();
     }
 
+    // ______________________________
+    cpt34msec++;
+    if (cpt34msec >= TEMPO_34msec) {
+        cpt34msec = 0;
+
+        m_telemetres.periodicTask();
+
+        unsigned long color_rgb = m_detection_obstacles.isObstacleAV()?RGBColor::RED: RGBColor::OFF_BLACK;
+        m_leds_rgb.setColor(0, color_rgb, 10);
+
+        color_rgb = m_detection_obstacles.isObstacleAR()?RGBColor::RED: RGBColor::OFF_BLACK;
+        m_leds_rgb.setColor(1, color_rgb, 10);
+    }
 
     // ______________________________
     cpt50msec++;
@@ -77,7 +100,7 @@ void CGlobale::SequenceurModeAutonome(void)
         cpt50msec = 0;
 
         m_leds_rgb.periodicTask();
-}
+    }
 
     // ______________________________
     cpt100msec++;
@@ -89,6 +112,7 @@ void CGlobale::SequenceurModeAutonome(void)
     cpt200msec++;
     if (cpt200msec >= TEMPO_200msec) {
         cpt200msec = 0;
+        HAL_GPIO_TogglePin(Led2_GPIO_Port, Led2_Pin);
     }
     // ______________________________
     cpt500msec++;

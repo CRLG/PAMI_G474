@@ -14,13 +14,6 @@ public:
     void CommandeMouvementXY_TETA_sym(float x, float y, float teta);    // de l'équipe pour inverser les mouvements
     void setPosition_XYTeta_sym(float x, float y, float teta);
 
-    // LED
-
-    // Ascenseur
-
-    // PowerSwitch
-    //void PowerSwitch_setOutput(int index, bool state);
-
     void stopAll();
 
 };

@@ -14,6 +14,16 @@ IA::IA()
     : IABase()
 {
     m_sm_liste[m_state_machine_count++] = &m_sm_autotest;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache1;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache2;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache3;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache4;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache5;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache6;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache7;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache8;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache9;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache10;
 }
 
 // ________________________________________________
@@ -29,10 +39,7 @@ void IA::init()
         }
     }
     setMaxScores();
-    //Valeur par défaut au démarrage de la cmde de la trame générique
-    //utile par exemple si on veut faire de la reconnaissance vidéo pendant l'installation du robot
-    //avant le début du match
-    //m_datas_interface.m_tx_code_cmd=DMDE_DISTANCE_BALISE;
+
     m_sm_main.start();
 }
 
@@ -41,12 +48,17 @@ void IA::match_started()
 {
     //Application.m_power_electrobot.setOutput((dsPicPowerElectrobotBase::tSwitchOutput)DECO_LED_CRLG, true);
     //m_outputs_interface.setPosition_XYTeta_sym(0, 0, M_PI/2); // pour l'année 2025 Teta=PI/2
+	//Application.m_leds_rgb.setColor(4, RGBColor::BLUE, 10);
+	Application.m_leds_rgb.setPattern(4, 5, 5);
 }
 
 // ________________________________________________
 void IA::match_finished()
 {
     //Application.m_power_electrobot.setOutput((dsPicPowerElectrobotBase::tSwitchOutput)DECO_LED_CRLG, false);
+	Application.m_leds_rgb.setColor(4, RGBColor::GREEN, 5);
+	Application.m_leds_rgb.setColor(5, RGBColor::GREEN, 5);
+	m_sm_tache10.start();
 }
 
 // ________________________________________________
@@ -63,52 +75,21 @@ void IA::setStrategie(unsigned char strategie)
     //strategie = STRATEGIE_PAR_DEFAUT;
     switch (strategie) {
     // ________________________
-    case STRATEGIE_HOMOLO1:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_datas_interface.evit_inhibe_obstacle=false;
-        Application.m_detection_obstacles.inhibeDetection(true);
-        Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1
-        Application.m_asservissement.setIndiceSportivite(0.5);
-        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_US); //par défaut seuil de détection avec les capteurs US en backup
-        m_datas_interface.evit_nombre_max_tentatives=1;
-
-        //m_sm_deposer_pile_centrale.setPrioriteExecution(ordre++);
-
-        break;
-    // ________________________
-    case STRATEGIE_HOMOLO2:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        m_datas_interface.evit_inhibe_obstacle=false;
-        Application.m_detection_obstacles.inhibeDetection(true);
-        Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1
-        Application.m_asservissement.setIndiceSportivite(0.5);
-        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_US); //par défaut seuil de détection avec les capteurs US en backup
-        m_datas_interface.evit_nombre_max_tentatives=1;
-
-        //m_sm_deposer_pile_centrale.setPrioriteExecution(ordre++);
-        break;
-    // ________________________
     case STRATEGIE_01:
+    default :
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
         m_datas_interface.evit_inhibe_obstacle=false;
-        //Application.m_detection_obstacles.inhibeDetection(true);
-        Application.m_asservissement.CommandeVitesseMouvement(20.,1.5); //normalement 80 cm.s-1 et 3 rad.s-1
-        Application.m_asservissement.setIndiceSportivite(0.3);
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_OBSTACLE);
+        Application.m_detection_obstacles.inhibeDetection(false);
+        Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1
+        Application.m_asservissement.setIndiceSportivite(0.5);
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
-        Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_US); //par défaut seuil de détection avec les capteurs US en backup
         m_datas_interface.evit_nombre_max_tentatives=1;
 
-        //m_sm_retour_zone_depart.setPrioriteExecution(ordre++);
-        break;
-    case STRATEGIE_PAR_DEFAUT:
-    default:
-        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
-        Application.m_detection_obstacles.inhibeDetection(true);
+        m_sm_tache1.setPrioriteExecution(ordre++);
+
         break;
     }
-
 
     m_datas_interface.ChoixStrategieMatch = strategie;
 }
@@ -128,6 +109,7 @@ void IA::step()
 {
 
 	// ......
+	m_inputs_interface.Tirette = HAL_GetTick() > 2000 && Application.m_detection_obstacles.isObstacleAR() && Application.m_detection_obstacles.isObstacleAV();
 
     stepAllStateMachines();
 }

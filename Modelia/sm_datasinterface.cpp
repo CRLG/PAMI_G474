@@ -27,20 +27,7 @@ void SM_DatasInterface::init()
     evit_toggle_signe                   = 1;
     evit_debug_etape                    = 0;
     evit_choix_strategie                = STRATEGIE_EVITEMENT_CONTOURNER;
-    evit_seuil_detection_obstacle       = 15; // [cm]
+    evit_seuil_detection_obstacle       = SEUIL_DETECTION_OBSTACLE; // [cm]
     evit_comportement_retour_evitement  = SM_Sequenceur::RETOUR_EVIT_REPRENDS_MISSION_INTERROMPUE;
     cpt_filtrage_obstacle_detecte       = 0;
-
-    //init de la messagerie générique
-    m_tx_value_01=0;
-    m_tx_value_02=0;
-    m_tx_value_03=0;
-    m_tx_value_04=0;
-    m_tx_code_cmd=1;
-
-    m_rx_value_01=0;
-    m_rx_value_02=0;
-    m_rx_value_03=0;
-    m_rx_value_04=0;
-    m_rx_code_cmd=1;
 }

@@ -16,6 +16,8 @@
 #include "OTOS_XYTeta.h"
 #include "ws2812b.h"
 #include "CTelemetres.h"
+#include "CDetectionObstaclesBase.h"
+#include "ia.h"
 
 typedef enum {
     MODE_AUTONOME = 0,
@@ -77,6 +79,12 @@ public :
 
     //! Télémètres VL53
     CTelemetres m_telemetres;
+    //! Gestion des détections d'obstacles (à priori l'algo de la classe de base suffit).
+    CDetectionObstaclesBase m_detection_obstacles;
+
+    //! Le match à  jouer
+    IA m_modelia;
+
 
     // Pour les tests unitaires en mode terminal
     bool test_Mot1_Sens1;

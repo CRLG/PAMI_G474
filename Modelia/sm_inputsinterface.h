@@ -8,39 +8,25 @@ public:
 
     void init();
 
+    bool dde_test_actionneurs;
+    bool dde_couleur_equipe;
+
     float TE_Modele;
 
     int Tirette;
 
-    // En provenance de l'écran
-    unsigned int dde_couleur_equipe;
-    unsigned int dde_test_actionneurs;
-
     // Détection d'obstacles
-    bool obstacle_AVD;
-    bool obstacle_AVG;
-    bool obstacle_ARD;
-    bool obstacle_ARG;
+    bool obstacle_AV;
+    bool obstacle_AR;
     bool obstacleDetecte;
-    bool obstacleDetecte_non_filtre;
-    float Telemetre_AVD;
-    float Telemetre_AVG;
-    float Telemetre_ARD;
-    float Telemetre_ARG;
-    float Telemetre_ARDCentre;
-    float Telemetre_ARGCentre;
 
-    // Lidar
-    unsigned char m_lidar_status;
+    float Telemetre_AV;
+    float Telemetre_AR;
 
     // Sortie de l'asservissement
     float X_robot;
     float Y_robot;
     float angle_robot;
-
-    float X_robot_terrain;  // Coordonnées absolue dans le repère terrain
-    float Y_robot_terrain;
-    float angle_robot_terrain;
 
     bool Convergence;
     bool Convergence_old;
@@ -48,17 +34,10 @@ public:
     bool Convergence_rapide;
     bool Convergence_rapide_old;
     bool FrontM_Convergence_rapide;
-    bool ConvergenceRack;
-    bool ConvergenceRack_old;
+
+    // Bouchon
     bool FrontM_ConvergenceRack;
-
     bool ConvergenceKmar;
-
-    //en provenance de la rasp
-    float m_distance_balise1;
-    float m_distance_balise2;
-    int m_nord;
-    int m_sud;
 };
 
 #endif // SM_INPUTSINTERFACE_H

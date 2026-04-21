@@ -1,5 +1,5 @@
 /**
- * Fichier généré le : 20250905_234233
+ * Fichier généré le : 20260421_132805
  */
 
 #include "sm_blockly_debutant.h"
@@ -14,44 +14,46 @@ void SM_Tache1::step()
     {
       case STATE_1 :
           if (onEntry()) {
-            Application.m_modelia.m_sm_tache2.start();
+            Application.m_asservissement.CommandeManuelle(10, 10);
           }
-          gotoState(STATE_2);
-          if (onExit()) { }
+          gotoStateAfter(STATE_2, 1000);
+          if (onExit()) {
+            Application.m_asservissement.CommandeManuelle(0, 0);
+          }
           break;
       case STATE_2 :
           if (onEntry()) {
-            Application.m_servos.CommandePositionVitesse(1, 1500, 9999);
+            Application.m_asservissement.CommandeManuelle(0, 0);
           }
-          gotoState(STATE_3);
+          gotoStateAfter(STATE_3, 1000);
           if (onExit()) {
+            Application.m_asservissement.CommandeManuelle(0, 0);
           }
           break;
       case STATE_3 :
           if (onEntry()) {
+            Application.m_modelia.m_sm_tache2.start();
           }
-          gotoStateAfter(STATE_4, 1000);
+          gotoState(STATE_4);
           if (onExit()) { }
           break;
       case STATE_4 :
           if (onEntry()) {
-            Application.m_servos.CommandePositionVitesse(1, 1000, 9999);
+            Application.m_asservissement.CommandeManuelle((-10), (-10));
           }
-          gotoState(STATE_5);
+          gotoStateAfter(STATE_5, 1000);
           if (onExit()) {
+            Application.m_asservissement.CommandeManuelle(0, 0);
           }
           break;
       case STATE_5 :
           if (onEntry()) {
+            Application.m_asservissement.CommandeManuelle(0, 0);
           }
-          gotoStateAfter(STATE_6, 1500);
-          if (onExit()) { }
-          break;
-      case STATE_6 :
-          if (onEntry()) {
+          gotoStateAfter(STATE_6, 1000);
+          if (onExit()) {
+            Application.m_asservissement.CommandeManuelle(0, 0);
           }
-          gotoState(STATE_1);
-          if (onExit()) { }
           break;
     }
 }
@@ -65,39 +67,79 @@ void SM_Tache2::step()
     {
       case STATE_1 :
           if (onEntry()) {
+            Application.m_servos.CommandePositionVitesse(4, 1500, 9999);
           }
-          gotoStateIfTrue(STATE_2, !(inputs()->Tirette));
-          if (onExit()) { }
+          gotoState(STATE_2);
+          if (onExit()) {
+          }
           break;
       case STATE_2 :
           if (onEntry()) {
-            Application.m_servos.CommandePositionVitesse(2, 1300, 30);
           }
-          gotoState(STATE_3);
-          if (onExit()) {
-          }
+          gotoStateAfter(STATE_3, 1000);
+          if (onExit()) { }
           break;
       case STATE_3 :
           if (onEntry()) {
+            Application.m_servos.CommandePositionVitesse(4, 1000, 9999);
           }
-          gotoStateAfter(STATE_4, 500);
-          if (onExit()) { }
-          break;
-      case STATE_4 :
-          if (onEntry()) {
-            Application.m_servos.CommandePositionVitesse(2, 1800, 9999);
-          }
-          gotoState(STATE_5);
+          gotoState(STATE_4);
           if (onExit()) {
           }
           break;
-      case STATE_5 :
+      case STATE_4 :
           if (onEntry()) {
           }
-          gotoStateAfter(STATE_6, 1500);
+          gotoStateAfter(STATE_5, 1000);
           if (onExit()) { }
           break;
-      case STATE_6 :
+      case STATE_5 :
+          if (onEntry()) {
+            Application.m_servos.CommandePositionVitesse(4, 2000, 5);
+          }
+          gotoState(STATE_6);
+          if (onExit()) {
+          }
+          break;
+    }
+}
+
+
+// _____________________________________
+#define SM_Tache10_Generated
+void SM_Tache10::step()
+{
+    switch (m_state)
+    {
+      case STATE_1 :
+          if (onEntry()) {
+            Application.m_servos.CommandePositionVitesse(4, 1000, 10);
+          }
+          gotoState(STATE_2);
+          if (onExit()) {
+          }
+          break;
+      case STATE_2 :
+          if (onEntry()) {
+          }
+          gotoStateAfter(STATE_3, 3000);
+          if (onExit()) { }
+          break;
+      case STATE_3 :
+          if (onEntry()) {
+            Application.m_servos.CommandePositionVitesse(4, 2000, 10);
+          }
+          gotoState(STATE_4);
+          if (onExit()) {
+          }
+          break;
+      case STATE_4 :
+          if (onEntry()) {
+          }
+          gotoStateAfter(STATE_5, 3000);
+          if (onExit()) { }
+          break;
+      case STATE_5 :
           if (onEntry()) {
           }
           gotoState(STATE_1);

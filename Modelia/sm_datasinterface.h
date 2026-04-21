@@ -19,12 +19,15 @@ public:
     void init();
 
     int couleur_equipe;
-    bool inverse_consignes_XYTeta;          // Inverse les commandes  XYTeta de mouvements envoyés à l'asserv en fonction de la couleur de l'équipe
     float TempsMatch;
     unsigned char ChoixStrategieMatch;
+    unsigned int choix_algo_next_mission;
 
-    int choix_algo_next_mission;
+    bool inverse_consignes_XYTeta;          // Inverse les commandes  XYTeta de mouvements envoyés à l'asserv en fonction de la couleur de l'équipe
 
+
+
+    // Bouchons
     // Detection d'obstacle
     unsigned char nombre_obstacles_presents;
     signed short angle_premier_obstacle_detecte;
@@ -56,26 +59,6 @@ public:
     unsigned short evit_seuil_detection_obstacle;
     unsigned char evit_comportement_retour_evitement;
 
-    // Pour l'inhibition de détection des obstacles
-    bool proximite_bordure_Xdroite;
-    bool proximite_bordure_Xgauche;
-    bool proximite_bordure_Ybasse;
-    bool proximite_bordure_Yhaute;
-    bool inhibe_detection_AV;
-    bool inhibe_detection_AR;
-
-    //pour la messagerie générique (utilisé par la caméra entre autre)
-    short m_tx_value_01;
-    short m_tx_value_02;
-    unsigned char m_tx_value_03;
-    unsigned char m_tx_value_04;
-    unsigned m_tx_code_cmd;
-
-    short m_rx_value_01;
-    short m_rx_value_02;
-    unsigned char m_rx_value_03;
-    unsigned char m_rx_value_04;
-    unsigned m_rx_code_cmd;
 };
 
 #endif // SM_DATASINTERFACE_H
