@@ -25,6 +25,8 @@ public:
     SM_Tache8                           m_sm_tache8;
     SM_Tache9                           m_sm_tache9;
     SM_Tache10                          m_sm_tache10;
+    SM_TachePostMatch                   m_sm_tache_post_match;
+    SM_TacheAvantMatch                  m_sm_tache_avant_match;
 
     void step();
     void init();

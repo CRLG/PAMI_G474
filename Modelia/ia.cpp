@@ -24,6 +24,8 @@ IA::IA()
     m_sm_liste[m_state_machine_count++] = &m_sm_tache8;
     m_sm_liste[m_state_machine_count++] = &m_sm_tache9;
     m_sm_liste[m_state_machine_count++] = &m_sm_tache10;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache_post_match;
+    m_sm_liste[m_state_machine_count++] = &m_sm_tache_avant_match;
 }
 
 // ________________________________________________
@@ -41,6 +43,7 @@ void IA::init()
     setMaxScores();
 
     m_sm_main.start();
+    m_sm_tache_avant_match.start();
 }
 
 // ________________________________________________
@@ -49,6 +52,7 @@ void IA::match_started()
     //Application.m_power_electrobot.setOutput((dsPicPowerElectrobotBase::tSwitchOutput)DECO_LED_CRLG, true);
     //m_outputs_interface.setPosition_XYTeta_sym(0, 0, M_PI/2); // pour l'année 2025 Teta=PI/2
 	//Application.m_leds_rgb.setColor(4, RGBColor::BLUE, 10);
+    m_sm_tache_avant_match.stop();
 	Application.m_leds_rgb.setPattern(4, 5, 5);
 }
 
@@ -58,7 +62,7 @@ void IA::match_finished()
     //Application.m_power_electrobot.setOutput((dsPicPowerElectrobotBase::tSwitchOutput)DECO_LED_CRLG, false);
 	Application.m_leds_rgb.setColor(4, RGBColor::GREEN, 5);
 	Application.m_leds_rgb.setColor(5, RGBColor::GREEN, 5);
-	m_sm_tache10.start();
+	m_sm_tache_post_match.start();
 }
 
 // ________________________________________________
@@ -110,6 +114,18 @@ void IA::step()
 
 	// ......
 	m_inputs_interface.Tirette = HAL_GetTick() > 2000 && Application.m_detection_obstacles.isObstacleAR() && Application.m_detection_obstacles.isObstacleAV();
+	m_inputs_interface.obstacleDetecte = Application.m_detection_obstacles.isObstacle();
+	m_inputs_interface.obstacle_AV     = Application.m_detection_obstacles.isObstacleAV();
+	m_inputs_interface.obstacle_AR     = Application.m_detection_obstacles.isObstacleAR();
+
+	// Permet de reconstituer une valeur entre 0 et 15 représentant toutes les situations de blocage
+	// 2 capteurs seulement sur PAMI
+	m_datas_interface.evit_detection_obstacle_bitfield =
+			(m_inputs_interface.obstacle_AR << 3) |
+			(m_inputs_interface.obstacle_AR << 2) |
+			(m_inputs_interface.obstacle_AV << 1) |
+			(m_inputs_interface.obstacle_AV << 0);
+
 
     stepAllStateMachines();
 }
