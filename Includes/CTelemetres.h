@@ -25,8 +25,8 @@ public :
     /*virtual*/ float getDistanceARDCentre() override;
 
 
-    bool init();
-    void periodicTask();
+    /*virtual*/ bool init() override;
+    /*virtual*/ void periodicTask() override;
 
 
     // Filtrage des capteurs US analogiques
