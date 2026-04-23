@@ -212,7 +212,6 @@ C_INCLUDES =  \
 -I$(CPPLIB)/VL53L0x \
 -I$(CPPLIB)/LCD_OLED_SSD1306 \
 -I$(CPPLIB)/OtosSparkfun_XYTeta \
--I$(CPPLIBSTM32)/VL53L0x \
 -I$(CPPLIBSTM32)/VL53L0x
 
 # compile gcc flags

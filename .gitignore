@@ -42,6 +42,7 @@
 
 # qt
 *.pro.user
+*.creator.user
 
 # Eclipse
 .settings
