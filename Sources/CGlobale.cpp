@@ -12,7 +12,7 @@
 */
 CGlobale::CGlobale()
 {
-    ModeFonctionnement = MODE_PILOTE_TERMINAL;
+    ModeFonctionnement = MODE_AUTONOME;//MODE_PILOTE_TERMINAL;
 }
 
 //___________________________________________________________________________
