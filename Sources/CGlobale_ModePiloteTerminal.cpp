@@ -39,6 +39,7 @@ void CGlobale::ReceiveRS232_ModePiloteTerminal(void)
 void CGlobale::SequenceurModePiloteTerminal(void)
 {
     static unsigned int cpt1msec = 0;
+    static unsigned int cpt5msec = 0;
     static unsigned int cpt10msec = 0;
     static unsigned int cpt20msec = 0;
     static unsigned int cpt34msec = 0;
@@ -55,7 +56,13 @@ void CGlobale::SequenceurModePiloteTerminal(void)
 
         m_codeurs.Traitement();
     }
+   // ______________________________
+   cpt5msec++;
+     if (cpt5msec >= TEMPO_5msec) {
+         cpt5msec = 0;
 
+         m_asservissement.CalculsMouvementsRobots();
+     }
     // ______________________________
     cpt10msec++;
     if (cpt10msec >= TEMPO_10msec) {
