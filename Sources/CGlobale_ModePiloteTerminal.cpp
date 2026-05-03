@@ -93,6 +93,9 @@ void CGlobale::SequenceurModePiloteTerminal(void)
         test_codeurs[0]= m_codeurs.m_CumulCodeurPosition1;
         test_codeurs[1]= m_codeurs.m_CumulCodeurPosition2;
 
+        test_codeur_roueG = m_roues.getCodeurG();
+        test_codeur_roueD = m_roues.getCodeurD();
+
         CdeServo(1, test_Servo1);
         CdeServo(2, test_Servo2);
         CdeServo(3, test_Servo3);

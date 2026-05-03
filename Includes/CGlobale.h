@@ -110,6 +110,8 @@ public :
     int test_Servo4;
 
     signed long test_codeurs[2];
+    signed long test_codeur_roueG;
+    signed long test_codeur_roueD;
 
     float test_telemetres[VL53_COUNT];
 
