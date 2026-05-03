@@ -75,7 +75,17 @@ public:
 
     bool get_xy_asser();
 
-
+    // _____________________________
+    // Page Data logger pour asservissement
+    void page_asserv_data_logger();
+    bool start_logger();
+    bool stop_logger();
+    bool statut_logger();
+    bool print_logger();
+    bool synchro_logger_off();
+    bool synchro_logger_on();
+    bool rollback_logger_off();
+    bool rollback_logger_on();
 
     bool read_codeurs();
     bool read_analog_inputs();
