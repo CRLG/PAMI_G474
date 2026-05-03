@@ -61,12 +61,20 @@ public:
     bool action_read_params();
 
 
-    bool action_asserv_vitesse_1_plus();
-    bool action_asserv_vitesse_1_moins();
-    bool action_asserv_vitesse_2_plus();
-    bool action_asserv_vitesse_2_moins();
-    bool action_active_debug_asserv();
-    bool action_stop_debug_asserv();
+    // Asservissement
+    bool asser_stop();
+    bool asser_resetPos();
+
+    bool asser_avant10();
+    bool asser_avant50();
+    bool asser_avant100();
+
+    bool asser_arriere10();
+    bool asser_arriere50();
+    bool asser_arriere100();
+
+    bool get_xy_asser();
+
 
 
     bool read_codeurs();
@@ -97,19 +105,6 @@ public:
     bool page_servo4_1700();
     bool page_servo4_2000();
 
-
-    bool asser_stop();
-    bool asser_resetPos();
-
-    bool asser_avant10();
-    bool asser_avant50();
-    bool asser_avant100();
-
-    bool asser_arriere10();
-    bool asser_arriere50();
-    bool asser_arriere100();
-
-    bool get_xy_asser();
 
     // _____________________________
     // Page I2C
