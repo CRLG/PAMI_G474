@@ -113,7 +113,7 @@ public :
     signed long test_codeur_roueG;
     signed long test_codeur_roueD;
 
-    float test_telemetres[VL53_COUNT];
+    float test_telemetres[VL53_MAX_COUNT];
 
 private : 
 

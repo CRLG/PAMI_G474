@@ -19,6 +19,9 @@
 //! Période d'appel du modèle
 #define PERIODE_APPEL_MODELIA 0.02f // [sec]
 
+//! Nombre de télémètres VL53 utilisés sur l'application
+#define NBRE_TELEMETRES_VL53 2
+
 //! Durée du match
 #define DUREE_MATCH 100 // [sec]
 #define DEBUT_MATCH 1 // [sec]

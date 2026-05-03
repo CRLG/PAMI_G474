@@ -13,8 +13,8 @@
    \param --
    \return --
 */
-CTelemetres::CTelemetres()
-: m_vl53(&I2C_HDL_ELECTROBOT)
+CTelemetres::CTelemetres(unsigned int telem_count)
+    : m_vl53(&I2C_HDL_ELECTROBOT, telem_count)
 {
 
 }
@@ -81,7 +81,7 @@ void CTelemetres::periodicTask(void)
 {
     m_vl53.read();
     // Filtrage moyenne glissante
-    for (int i=0; i<VL53_COUNT; i++) {
+    for (int i=0; i<m_vl53.get_vl53_count(); i++) {
     	unsigned short current_dist = m_vl53.get_last_distance(i);
     	m_dist_filt[i] = MoyenneGlissante_uint16(current_dist, m_buff_moy_dist_vl53[i], BUFF_SIZE_MOYENNE);
     }

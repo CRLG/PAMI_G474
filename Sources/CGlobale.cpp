@@ -11,6 +11,7 @@
    \return --
 */
 CGlobale::CGlobale()
+    : m_telemetres(NBRE_TELEMETRES_VL53)
 {
     ModeFonctionnement = MODE_AUTONOME;//MODE_PILOTE_TERMINAL;
 }

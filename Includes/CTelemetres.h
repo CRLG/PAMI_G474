@@ -12,7 +12,7 @@
 class CTelemetres : public CTelemetresBase
 {
 public :
-	CTelemetres();
+    CTelemetres(unsigned int telem_count);
 	~CTelemetres();
 	
     // ________________________________________________________
@@ -41,8 +41,8 @@ private :
     VL53L0xMulti m_vl53;
 
     static const unsigned short BUFF_SIZE_MOYENNE = 2;
-    unsigned short m_buff_moy_dist_vl53[VL53_COUNT][BUFF_SIZE_MOYENNE];
-    unsigned short m_dist_filt[VL53_COUNT];
+    unsigned short m_buff_moy_dist_vl53[VL53_MAX_COUNT][BUFF_SIZE_MOYENNE];
+    unsigned short m_dist_filt[VL53_MAX_COUNT];
 };
 
 #endif
