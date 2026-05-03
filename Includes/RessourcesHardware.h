@@ -19,6 +19,7 @@ extern "C" {
 //#define ANGLE_PAR_PAS_CODEUR (7200./7813.)//(0.92272)
 #define ANGLE_PAR_PAS_CODEUR (360./400.)
 
+unsigned long getTime();
 void setLedBuiltin(bool state);
 void toggleLedBuiltin();
 void CdeMoteur(unsigned char num_moteur, float cde_pourcent);
