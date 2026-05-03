@@ -41,7 +41,7 @@ typedef struct
     char convergence_conf;
 }tLogData;
 
-static const int NBRE_LIGNES = 7500;
+static const int NBRE_LIGNES = 1000;
 static tLogData m_datas[NBRE_LIGNES];
 
 #endif // UTILISATION_ASSERV_LOGGER
