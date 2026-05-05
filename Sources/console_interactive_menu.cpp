@@ -164,12 +164,16 @@ void CMenuApp::page_asservissement () {
     DECLARE_ACTION('x', "STOP", CMenuApp::asser_stop);
     DECLARE_ACTION('c', "RESET ASSERVISSEMENT", CMenuApp::asser_resetPos);
     DECLARE_ACTION('a', "+10 cm", CMenuApp::asser_avant10);
-    DECLARE_ACTION('z', "+50 cm", CMenuApp::asser_avant50);
-    DECLARE_ACTION('e', "+100 cm", CMenuApp::asser_avant100);
+    DECLARE_ACTION('z', "+20 cm", CMenuApp::asser_avant20);
+    DECLARE_ACTION('e', "+30 cm", CMenuApp::asser_avant30);
+    DECLARE_ACTION('r', "+50 cm", CMenuApp::asser_avant50);
+    DECLARE_ACTION('t', "+100 cm", CMenuApp::asser_avant100);
 
-    DECLARE_ACTION('r', "-10 cm", CMenuApp::asser_arriere10);
-    DECLARE_ACTION('t', "-50 cm", CMenuApp::asser_arriere50);
-    DECLARE_ACTION('y', "-100 cm", CMenuApp::asser_arriere100);
+    DECLARE_ACTION('A', "-10 cm", CMenuApp::asser_arriere10);
+    DECLARE_ACTION('Z', "-20 cm", CMenuApp::asser_arriere20);
+    DECLARE_ACTION('E', "-30 cm", CMenuApp::asser_arriere30);
+    DECLARE_ACTION('R', "-50 cm", CMenuApp::asser_arriere50);
+    DECLARE_ACTION('T', "-100 cm", CMenuApp::asser_arriere100);
 
     DECLARE_ACTION('u', "Afficher x/y", CMenuApp::get_xy_asser);
 
@@ -282,9 +286,21 @@ bool CMenuApp::asser_avant10 ()
     return true;
 }
 
+bool CMenuApp::asser_avant20 ()
+{
+	Application.m_asservissement.CommandeMouvementDistanceAngle(20, 0);
+    return true;
+}
+
+bool CMenuApp::asser_avant30 ()
+{
+	Application.m_asservissement.CommandeMouvementDistanceAngle(30, 0);
+    return true;
+}
+
 bool CMenuApp::asser_avant50 ()
 {
-	Application.m_asservissement.CommandeMouvementDistanceAngle(50, 0);
+	Application.m_asservissement.CommandeMouvementDistanceAngle(30, 0);
     return true;
 }
 
@@ -299,6 +315,19 @@ bool CMenuApp::asser_arriere10 ()
 	Application.m_asservissement.CommandeMouvementDistanceAngle(-10, 0);
 	return true;
 }
+
+bool CMenuApp::asser_arriere20 ()
+{
+	Application.m_asservissement.CommandeMouvementDistanceAngle(-20, 0);
+	return true;
+}
+
+bool CMenuApp::asser_arriere30 ()
+{
+	Application.m_asservissement.CommandeMouvementDistanceAngle(-30, 0);
+	return true;
+}
+
 
 bool CMenuApp::asser_arriere50 ()
 {

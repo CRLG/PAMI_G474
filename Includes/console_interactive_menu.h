@@ -66,10 +66,14 @@ public:
     bool asser_resetPos();
 
     bool asser_avant10();
+    bool asser_avant20();
+    bool asser_avant30();
     bool asser_avant50();
     bool asser_avant100();
 
     bool asser_arriere10();
+    bool asser_arriere20();
+    bool asser_arriere30();
     bool asser_arriere50();
     bool asser_arriere100();
 
