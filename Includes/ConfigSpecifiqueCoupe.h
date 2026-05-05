@@ -4,6 +4,9 @@
 #ifndef _CONFIG_SPECIFIQUE_COUPE 
 #define _CONFIG_SPECIFIQUE_COUPE
 
+// A décommenter pour activer le logger
+// !!!! Le Logger consomme beaucoup de RAM (à désactiver si pas besoin)
+//#define UTILISATION_ASSERV_LOGGER
 
 // Consignes "tout doux" pour l'asserviseement
 // utilisé dans la stratégie d'évitement et propre au robot
