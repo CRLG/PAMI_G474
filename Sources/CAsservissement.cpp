@@ -6,8 +6,8 @@
 #include "CGlobale.h"
 
 // Constantes spécifiques au robot
-const float CAsservissementBase::DISTANCE_PAR_PAS_CODEUR_G = (24.f/461.f);  // 24cm pour 461pas
-const float CAsservissementBase::DISTANCE_PAR_PAS_CODEUR_D = (24.f/461.f);  //
+const float CAsservissementBase::DISTANCE_PAR_PAS_CODEUR_G = (30.f/637.f);  // 30cm pour 637pas
+const float CAsservissementBase::DISTANCE_PAR_PAS_CODEUR_D = (30.f/637.f);  //
 const float CAsservissementBase::VOIE_ROBOT = 10;
 
 // Cartos spécifique au robo
