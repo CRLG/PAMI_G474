@@ -175,6 +175,11 @@ void CMenuApp::page_asservissement () {
     DECLARE_ACTION('R', "-50 cm", CMenuApp::asser_arriere50);
     DECLARE_ACTION('T', "-100 cm", CMenuApp::asser_arriere100);
 
+    DECLARE_ACTION('q', "Pi/2", CMenuApp::asser_rotationPiSur2);
+    DECLARE_ACTION('s', "Pi", CMenuApp::asser_rotationPi);
+    DECLARE_ACTION('Q', "-Pi/2", CMenuApp::asser_rotationMoinsPiSur2);
+    DECLARE_ACTION('S', "-Pi", CMenuApp::asser_rotationMoinsPi);
+
     DECLARE_ACTION('u', "Afficher x/y", CMenuApp::get_xy_asser);
 
     DECLARE_OPTION('l', "Data Logger", CMenuApp::page_asserv_data_logger);
@@ -280,69 +285,26 @@ bool CMenuApp::asser_resetPos()
     return true;
 }
 
-bool CMenuApp::asser_avant10 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(10, 0);
-    return true;
-}
+bool CMenuApp::asser_avant10 () { Application.m_asservissement.CommandeMouvementDistanceAngle(10, 0); return true; }
+bool CMenuApp::asser_avant20 () { Application.m_asservissement.CommandeMouvementDistanceAngle(20, 0); return true; }
+bool CMenuApp::asser_avant30 () { Application.m_asservissement.CommandeMouvementDistanceAngle(30, 0); return true; }
+bool CMenuApp::asser_avant50() { Application.m_asservissement.CommandeMouvementDistanceAngle(50, 0); return true; }
+bool CMenuApp::asser_avant100 () { Application.m_asservissement.CommandeMouvementDistanceAngle(100, 0); return true; }
 
-bool CMenuApp::asser_avant20 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(20, 0);
-    return true;
-}
+bool CMenuApp::asser_arriere10 () {	Application.m_asservissement.CommandeMouvementDistanceAngle(-10, 0); return true; }
+bool CMenuApp::asser_arriere20 () { Application.m_asservissement.CommandeMouvementDistanceAngle(-20, 0); return true; }
+bool CMenuApp::asser_arriere30 () {	Application.m_asservissement.CommandeMouvementDistanceAngle(-30, 0); return true; }
+bool CMenuApp::asser_arriere50 () {	Application.m_asservissement.CommandeMouvementDistanceAngle(-50, 0); return true; }
+bool CMenuApp::asser_arriere100 () {Application.m_asservissement.CommandeMouvementDistanceAngle(-100, 0); return true; }
 
-bool CMenuApp::asser_avant30 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(30, 0);
-    return true;
-}
-
-bool CMenuApp::asser_avant50 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(30, 0);
-    return true;
-}
-
-bool CMenuApp::asser_avant100 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(100, 0);
-    return true;
-}
-
-bool CMenuApp::asser_arriere10 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(-10, 0);
-	return true;
-}
-
-bool CMenuApp::asser_arriere20 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(-20, 0);
-	return true;
-}
-
-bool CMenuApp::asser_arriere30 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(-30, 0);
-	return true;
-}
-
-
-bool CMenuApp::asser_arriere50 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(-50, 0);
-    return true;
-}
-
-bool CMenuApp::asser_arriere100 ()
-{
-	Application.m_asservissement.CommandeMouvementDistanceAngle(-100, 0);
-    return true;
-}
+bool CMenuApp::asser_rotationPiSur2()       { Application.m_asservissement.CommandeMouvementDistanceAngle(0, M_PI/2); return true;}
+bool CMenuApp::asser_rotationPi()           { Application.m_asservissement.CommandeMouvementDistanceAngle(0, M_PI); return true;}
+bool CMenuApp::asser_rotationMoinsPiSur2()  { Application.m_asservissement.CommandeMouvementDistanceAngle(0, -M_PI/2); return true;}
+bool CMenuApp::asser_rotationMoinsPi()      { Application.m_asservissement.CommandeMouvementDistanceAngle(0, -M_PI); return true;}
 
 bool CMenuApp::get_xy_asser ()
 {
+    _printf("x=%d / y=%f\n\r", Application.m_asservissement.X_robot, Application.m_asservissement.Y_robot);
     return true;
 }
 

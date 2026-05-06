@@ -77,6 +77,11 @@ public:
     bool asser_arriere50();
     bool asser_arriere100();
 
+    bool asser_rotationPiSur2();
+    bool asser_rotationPi();
+    bool asser_rotationMoinsPiSur2();
+    bool asser_rotationMoinsPi();
+
     bool get_xy_asser();
 
     // _____________________________
