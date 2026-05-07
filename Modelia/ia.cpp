@@ -112,8 +112,12 @@ void IA::setMaxScores()
 void IA::step()
 {
 
+    // Mise en forme de données pour le modèle
+    m_inputs_interface.FrontM_Convergence = m_inputs_interface.Convergence && !m_inputs_interface.Convergence_old;
+    m_inputs_interface.Convergence_old = m_inputs_interface.Convergence;
+
 	// ......
-	m_inputs_interface.Tirette = HAL_GetTick() > 2000 && Application.m_detection_obstacles.isObstacleAR() && Application.m_detection_obstacles.isObstacleAV();
+    m_inputs_interface.Tirette = (HAL_GetTick() > 2000) && (readAnalog(1) < 2000);
 	m_inputs_interface.obstacleDetecte = Application.m_detection_obstacles.isObstacle();
 	m_inputs_interface.obstacle_AV     = Application.m_detection_obstacles.isObstacleAV();
 	m_inputs_interface.obstacle_AR     = Application.m_detection_obstacles.isObstacleAR();
