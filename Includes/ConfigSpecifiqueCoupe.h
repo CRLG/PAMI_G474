@@ -17,7 +17,7 @@
 #define CDE_MAX_TOUT_DOUX (10)
 
 //! Seuil de détection d'obstacle
-#define SEUIL_DETECTION_OBSTACLE  (100) // [mm]
+#define SEUIL_DETECTION_OBSTACLE  (250) // [mm]
 
 //! Période d'appel du modèle
 #define PERIODE_APPEL_MODELIA 0.02f // [sec]

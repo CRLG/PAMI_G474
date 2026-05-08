@@ -85,7 +85,7 @@ void IA::setStrategie(unsigned char strategie)
         m_datas_interface.evit_inhibe_obstacle=false;
         Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_OBSTACLE);
         Application.m_detection_obstacles.inhibeDetection(false);
-        Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1
+        //Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1 (réduit la vitesse si besoin)
         Application.m_asservissement.setIndiceSportivite(0.5);
         m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
         m_datas_interface.evit_nombre_max_tentatives=1;
@@ -111,6 +111,12 @@ void IA::setMaxScores()
 // ou si le modèle ne peut pas utiliser directement Application.m_xxxxx.yyyy
 void IA::step()
 {
+
+    m_inputs_interface.Convergence         = Application.m_asservissement.convergence_conf;
+    m_inputs_interface.Convergence_rapide  = Application.m_asservissement.convergence_rapide;
+    m_inputs_interface.X_robot             = Application.m_asservissement.X_robot;
+    m_inputs_interface.Y_robot             = Application.m_asservissement.Y_robot;
+    m_inputs_interface.angle_robot         = Application.m_asservissement.angle_robot;
 
     // Mise en forme de données pour le modèle
     m_inputs_interface.FrontM_Convergence = m_inputs_interface.Convergence && !m_inputs_interface.Convergence_old;

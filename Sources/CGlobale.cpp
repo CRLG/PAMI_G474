@@ -13,7 +13,7 @@
 CGlobale::CGlobale()
     : m_telemetres(NBRE_TELEMETRES_VL53)
 {
-    ModeFonctionnement = MODE_PILOTE_TERMINAL;
+    ModeFonctionnement = MODE_AUTONOME;
 }
 
 //___________________________________________________________________________
