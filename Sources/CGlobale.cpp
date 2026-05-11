@@ -53,8 +53,18 @@ void CGlobale::Run(void)
    m_lcd.Init();
    m_lcd.GotoXY (20,0);
    m_lcd.Puts ("CRLG", &Font_16x26, SSD1306::SSD1306_COLOR_WHITE);
-   m_lcd.GotoXY (30, 40);
-   m_lcd.Puts ("PAMI", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
+   m_lcd.GotoXY (30, 20);
+
+#if (TYPE_PAMI == PAMI_TYPE_ECUREUIL_1)
+   m_lcd.Puts ("PAMI E1", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
+#elif (TYPE_PAMI == PAMI_TYPE_ECUREUIL_2)
+   m_lcd.Puts ("PAMI E2", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
+#elif (TYPE_PAMI == PAMI_TYPE_ECUREUIL_3)
+   m_lcd.Puts ("PAMI E3", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
+#else
+   m_lcd.Puts ("PAMI N", &Font_11x18, SSD1306::SSD1306_COLOR_WHITE);
+#endif
+
    m_lcd.UpdateScreen();
 
    // Bandeau de LED

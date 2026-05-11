@@ -1,0 +1,40 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "state_machine_expert",
+        "id": "AP-mZ`Liy(#_j:B8(r1_",
+        "x": 30,
+        "y": 410,
+        "fields": {
+          "STRAT_NOM": "0",
+          "NOM_SM": "remplir_les_frigos"
+        },
+        "inputs": {
+          "DESCR": {
+            "block": {
+              "type": "etat_expert",
+              "id": "S;gqd!)E.oaTaSs^sm$P",
+              "fields": {
+                "NOM": "ETAT_1",
+                "LOCK_NOM": false,
+                "IS_DUMMY": false
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "labotbox_context": {
+    "state_machine": [],
+    "moteurs": [],
+    "servos": [],
+    "values_servos": [],
+    "servos_ax": [],
+    "values_servos_ax": [],
+    "set_bot_state": [],
+    "switch": []
+  }
+}

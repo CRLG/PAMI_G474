@@ -6,6 +6,9 @@
 
 #include "sm_debuginterface.h"
 #include "sm_blockly_debutant.h"
+#include "sm_vider_les_frigos.h"
+#include "sm_remplir_les_frigos.h"
+#include "sm_recuperer_les_caisses_vides.h"
 
 class IA : public IABase
 {
@@ -27,6 +30,11 @@ public:
     SM_Tache10                          m_sm_tache10;
     SM_TachePostMatch                   m_sm_tache_post_match;
     SM_TacheAvantMatch                  m_sm_tache_avant_match;
+
+    // PAMI Ninja
+    SM_recuperer_les_caisses_vides      m_sm_recuperer_les_caisses_vides;
+    SM_vider_les_frigos                 m_sm_vider_les_frigos;
+    SM_remplir_les_frigos               m_sm_remplir_les_frigos;
 
     void step();
     void init();

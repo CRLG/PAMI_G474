@@ -157,6 +157,26 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_outputsinterface.h</locationURI>
 		</link>
 		<link>
+			<name>Modelia/sm_recuperer_les_caisses_vides.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_recuperer_les_caisses_vides.cpp</locationURI>
+		</link>
+		<link>
+			<name>Modelia/sm_recuperer_les_caisses_vides.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_recuperer_les_caisses_vides.h</locationURI>
+		</link>
+		<link>
+			<name>Modelia/sm_remplir_les_frigos.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_remplir_les_frigos.cpp</locationURI>
+		</link>
+		<link>
+			<name>Modelia/sm_remplir_les_frigos.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_remplir_les_frigos.h</locationURI>
+		</link>
+		<link>
 			<name>Modelia/sm_sequenceur.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_sequenceur.cpp</locationURI>
@@ -165,6 +185,16 @@
 			<name>Modelia/sm_sequenceur.h</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_sequenceur.h</locationURI>
+		</link>
+		<link>
+			<name>Modelia/sm_vider_les_frigos.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_vider_les_frigos.cpp</locationURI>
+		</link>
+		<link>
+			<name>Modelia/sm_vider_les_frigos.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Modelia/sm_vider_les_frigos.h</locationURI>
 		</link>
 		<link>
 			<name>Sources/CAsservLogger.cpp</name>

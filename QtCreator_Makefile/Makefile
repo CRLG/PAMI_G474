@@ -69,6 +69,9 @@ $(APP_SOURCES)/ws2812b.cpp \
 $(MODELIA)/ia.cpp \
 $(MODELIA)/sm_autotest.cpp \
 $(MODELIA)/sm_blockly_debutant.cpp \
+$(MODELIA)/sm_recuperer_les_caisses_vides.cpp \
+$(MODELIA)/sm_remplir_les_frigos.cpp \
+$(MODELIA)/sm_vider_les_frigos.cpp \
 $(MODELIA)/sm_datasinterface.cpp \
 $(MODELIA)/sm_inputsinterface.cpp \
 $(MODELIA)/sm_outputsinterface.cpp \

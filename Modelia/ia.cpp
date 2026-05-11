@@ -26,6 +26,11 @@ IA::IA()
     m_sm_liste[m_state_machine_count++] = &m_sm_tache10;
     m_sm_liste[m_state_machine_count++] = &m_sm_tache_post_match;
     m_sm_liste[m_state_machine_count++] = &m_sm_tache_avant_match;
+
+    m_sm_liste[m_state_machine_count++] = &m_sm_recuperer_les_caisses_vides;
+    m_sm_liste[m_state_machine_count++] = &m_sm_vider_les_frigos;
+    m_sm_liste[m_state_machine_count++] = &m_sm_remplir_les_frigos;
+
 }
 
 // ________________________________________________
@@ -79,8 +84,24 @@ void IA::setStrategie(unsigned char strategie)
     //strategie = STRATEGIE_PAR_DEFAUT;
     switch (strategie) {
     // ________________________
-    case STRATEGIE_01:
-    default :
+    case STRATEGIE_PAMI_NINJA_01 :
+        m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
+        m_datas_interface.evit_inhibe_obstacle=false;
+        Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_OBSTACLE);
+        Application.m_detection_obstacles.inhibeDetection(false);
+        //Application.m_asservissement.CommandeVitesseMouvement(40.,2); //normalement 80 cm.s-1 et 3 rad.s-1 (réduit la vitesse si besoin)
+        Application.m_asservissement.setIndiceSportivite(0.5);
+        m_datas_interface.evit_choix_strategie= SM_DatasInterface::STRATEGIE_EVITEMENT_ATTENDRE;
+        m_datas_interface.evit_nombre_max_tentatives=1;
+
+        m_sm_recuperer_les_caisses_vides.setPrioriteExecution(ordre++);
+        m_sm_vider_les_frigos.setPrioriteExecution(ordre++);
+        m_sm_remplir_les_frigos.setPrioriteExecution(ordre++);
+        m_sm_recuperer_les_caisses_vides.setPrioriteExecution(ordre++);
+        break;
+
+        // ________________________
+    default : // PAMI écureuil et par défaut
         m_datas_interface.choix_algo_next_mission = ALGO_PERTINENT_MISSION_CHOIX_PRIORITE;
         m_datas_interface.evit_inhibe_obstacle=false;
         Application.m_detection_obstacles.setSeuilDetectionObstacle(SEUIL_DETECTION_OBSTACLE);

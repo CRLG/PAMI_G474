@@ -1,5 +1,5 @@
 /**
- * Fichier généré le : 20260508_012336
+ * Fichier généré le : 20260508_034319
  */
 
 #include "sm_blockly_debutant.h"
@@ -14,23 +14,9 @@ void SM_Tache1::step()
     {
       case STATE_1 :
           if (onEntry()) {
-            Application.m_asservissement.CommandeMouvementDistanceAngle(150, inputs()->angle_robot);
+            Application.m_asservissement.CommandeMouvementXY_TETA(10, 10, (M_PI/180)*(90));
           }
           gotoStateIfConvergence(STATE_2,5000);
-          if (onExit()) { }
-          break;
-      case STATE_2 :
-          if (onEntry()) {
-            Application.m_asservissement.CommandeMouvementDistanceAngle(0, (M_PI/180)*(90));
-          }
-          gotoStateIfConvergence(STATE_3,5000);
-          if (onExit()) { }
-          break;
-      case STATE_3 :
-          if (onEntry()) {
-            Application.m_asservissement.CommandeMouvementDistanceAngle(50, inputs()->angle_robot);
-          }
-          gotoStateIfConvergence(STATE_4,5000);
           if (onExit()) { }
           break;
       default:

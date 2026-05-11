@@ -1,0 +1,738 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "description_debutant",
+        "id": "q$Vn4w1)5?2x%{1OZ-M,",
+        "x": 47,
+        "y": 45,
+        "inputs": {
+          "NOM_SM": {
+            "shadow": {
+              "type": "nom_tache_sm",
+              "id": "9o@SJ}c+X}1|ucT@_y-$",
+              "fields": {
+                "NOM_TACHE_SM": "SM_TACHE1"
+              }
+            }
+          },
+          "DESCR": {
+            "block": {
+              "type": "commande_moteur_manuelle_duree",
+              "id": "RK@*UFZjIYnfce,Uh/Et",
+              "inputs": {
+                "MOT_GAUCHE": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "mDK{Rcsx1q3p[%AGD?wD",
+                    "fields": {
+                      "NUM": 10
+                    }
+                  }
+                },
+                "MOT_DROIT": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "ni})`Fw@PIOP5djhsB%+",
+                    "fields": {
+                      "NUM": 10
+                    }
+                  }
+                },
+                "DUREE_MSEC": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "m7{{:2@a@8,}~h(^K-]e",
+                    "fields": {
+                      "NUM": 1000
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "commande_moteur_manuelle_duree",
+                  "id": "+-NJ*B2Wq50Yi9wJIxha",
+                  "inputs": {
+                    "MOT_GAUCHE": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "L$X-{sEsXv0hncWeHp?}",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    },
+                    "MOT_DROIT": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "0:|s5g:mYER|s7CfQ9_}",
+                        "fields": {
+                          "NUM": 0
+                        }
+                      }
+                    },
+                    "DUREE_MSEC": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "/2KQ8[IX7qdaQ+%:Npb:",
+                        "fields": {
+                          "NUM": 1000
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "activer_tache",
+                      "id": "@(/MS(69^_s,s[]{=JU3",
+                      "inputs": {
+                        "NOM_SM": {
+                          "shadow": {
+                            "type": "nom_tache_sm",
+                            "id": "gKf%2%^WPJxwGcx[p)$^",
+                            "fields": {
+                              "NOM_TACHE_SM": "SM_TACHE2"
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "commande_moteur_manuelle_duree",
+                          "id": "WUJ[m2Dly(,m2?Of.|Oj",
+                          "inputs": {
+                            "MOT_GAUCHE": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "U{c+OC1!Bi[hA9XmDdi:",
+                                "fields": {
+                                  "NUM": -4
+                                }
+                              }
+                            },
+                            "MOT_DROIT": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "2@q=Sg`l,O(ur%cf`Wrs",
+                                "fields": {
+                                  "NUM": -4
+                                }
+                              }
+                            },
+                            "DUREE_MSEC": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "},O+,lBBcguzCnqpqrLz",
+                                "fields": {
+                                  "NUM": 1000
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "commande_moteur_manuelle_duree",
+                              "id": "k4F}H%@~]}}e?f[N.iJ1",
+                              "inputs": {
+                                "MOT_GAUCHE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "wxhf!=Rpcytd$ez8zmP%",
+                                    "fields": {
+                                      "NUM": 0
+                                    }
+                                  }
+                                },
+                                "MOT_DROIT": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "(d[$`]vQ34W#..DX-b+W",
+                                    "fields": {
+                                      "NUM": 0
+                                    }
+                                  }
+                                },
+                                "DUREE_MSEC": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "=pYGw+$`5x}mXPA6@1+x",
+                                    "fields": {
+                                      "NUM": 1000
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "reboucler_vers_etape",
+                                  "id": "MwI#lQJ{qs.Ns!)z-eVT",
+                                  "inputs": {
+                                    "ETAPE": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "IN{w4`7#SA{Xlh^(p)9A",
+                                        "fields": {
+                                          "NUM": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description_debutant",
+        "id": "qNHVllBIi{eYvqqd:`8O",
+        "x": 50,
+        "y": 350,
+        "inputs": {
+          "NOM_SM": {
+            "shadow": {
+              "type": "nom_tache_sm",
+              "id": "FYjk7#;us|mJaurIxxRN",
+              "fields": {
+                "NOM_TACHE_SM": "SM_TACHE2"
+              }
+            }
+          },
+          "DESCR": {
+            "block": {
+              "type": "commande_servo_position_vitesse",
+              "id": "LbXp;DhsjEXv97Nk}9K.",
+              "inputs": {
+                "INDEX_SERVO": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "IUgLWmh/l2^U+XwzQxT=",
+                    "fields": {
+                      "NUM": 4
+                    }
+                  }
+                },
+                "POSITION": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "=IKr}^R6/^24ch;@tfPA",
+                    "fields": {
+                      "NUM": 1500
+                    }
+                  }
+                },
+                "VITESSE": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "b9|mXK{Y8`tiDy7bX6^I",
+                    "fields": {
+                      "NUM": 9999
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "attendre",
+                  "id": "Y^URNEBpzVsyz[!yh^=y",
+                  "fields": {
+                    "UNITES": "MSEC"
+                  },
+                  "inputs": {
+                    "VALEUR": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "a_y161|hG%m01@YIbSTi",
+                        "fields": {
+                          "NUM": 1000
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "commande_servo_position_vitesse",
+                      "id": "U`~Dv(Bavdos6L_`eOOO",
+                      "inputs": {
+                        "INDEX_SERVO": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "XvV*CF7cS^FL0nx/vWbp",
+                            "fields": {
+                              "NUM": 4
+                            }
+                          }
+                        },
+                        "POSITION": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "X2?O-5W.w)W5i`yaea_j",
+                            "fields": {
+                              "NUM": 1000
+                            }
+                          }
+                        },
+                        "VITESSE": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "arWr)*{^gUUhxg5G;9h:",
+                            "fields": {
+                              "NUM": 9999
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "attendre",
+                          "id": "3M@k62lGrZjI*/NC2]_@",
+                          "fields": {
+                            "UNITES": "MSEC"
+                          },
+                          "inputs": {
+                            "VALEUR": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": ":CMverGVE)V+zC#|Hb$D",
+                                "fields": {
+                                  "NUM": 1000
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "commande_servo_position_vitesse",
+                              "id": ".c/BM4Hh7[u-+5yWk*o/",
+                              "inputs": {
+                                "INDEX_SERVO": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "z01VuIAyp1MH)G!E}pDz",
+                                    "fields": {
+                                      "NUM": 4
+                                    }
+                                  }
+                                },
+                                "POSITION": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "m0+EfA^B_m+T|{Cmi(j.",
+                                    "fields": {
+                                      "NUM": 2000
+                                    }
+                                  }
+                                },
+                                "VITESSE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "77=RELt$6Dgop[9Td?e$",
+                                    "fields": {
+                                      "NUM": 9999
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description_debutant",
+        "id": "%zw0yBhXq1G|hB^J!^@T",
+        "x": -510,
+        "y": 350,
+        "icons": {
+          "comment": {
+            "text": "La machine d'état de fin de match",
+            "pinned": false,
+            "height": 80,
+            "width": 160
+          }
+        },
+        "inputs": {
+          "NOM_SM": {
+            "shadow": {
+              "type": "nom_tache_sm",
+              "id": "I!DmG:gue[;S5;^?;-,t",
+              "fields": {
+                "NOM_TACHE_SM": "SM_TACHE_POST_MATCH"
+              }
+            }
+          },
+          "DESCR": {
+            "block": {
+              "type": "commande_servo_position_vitesse",
+              "id": "3{}j+JQ]99WgXo_iR|kf",
+              "inputs": {
+                "INDEX_SERVO": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "N/*~^]g]yoOkb%{37m(D",
+                    "fields": {
+                      "NUM": 4
+                    }
+                  }
+                },
+                "POSITION": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "?=P*|H,hr]SkO.CPn;s#",
+                    "fields": {
+                      "NUM": 1000
+                    }
+                  }
+                },
+                "VITESSE": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "pFt,2l-Q-{g0~;SzMHPm",
+                    "fields": {
+                      "NUM": 10
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "attendre",
+                  "id": "~]_dTMvI2~:LUzVx9o((",
+                  "fields": {
+                    "UNITES": "MSEC"
+                  },
+                  "inputs": {
+                    "VALEUR": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "m5#khG+fd^jKHeY[lZnK",
+                        "fields": {
+                          "NUM": 3000
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "commande_servo_position_vitesse",
+                      "id": "5b`zk@DbzY)]?9v:TAo!",
+                      "inputs": {
+                        "INDEX_SERVO": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "DqgpzaFZf7`1os6FvsLi",
+                            "fields": {
+                              "NUM": 4
+                            }
+                          }
+                        },
+                        "POSITION": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "Nr:3!UV=*M]JM[7z;r%K",
+                            "fields": {
+                              "NUM": 2000
+                            }
+                          }
+                        },
+                        "VITESSE": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "[e)(SBBC@fouSlrv7{w}",
+                            "fields": {
+                              "NUM": 40
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "attendre",
+                          "id": "SipTi2P0uC;9]J${[u}1",
+                          "fields": {
+                            "UNITES": "MSEC"
+                          },
+                          "inputs": {
+                            "VALEUR": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "G)2F1v$=,T/^6R(_Z8K7",
+                                "fields": {
+                                  "NUM": 3000
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "aller_vers_etape_si_condition",
+                              "id": "^R!VsuNmy{vf~c9)Phos",
+                              "fields": {
+                                "VRAI_FAUX": "VRAI"
+                              },
+                              "inputs": {
+                                "ETAPE": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "n9Bn^90.jY.;6M[8v?C1",
+                                    "fields": {
+                                      "NUM": 2
+                                    }
+                                  }
+                                },
+                                "CONDITION": {
+                                  "block": {
+                                    "type": "tirette",
+                                    "id": "I1|t.R9m2glVcXAEzwz$"
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "reboucler_vers_etape",
+                                  "id": "zB.jAT06Z$FD.`/LJ+mR",
+                                  "inputs": {
+                                    "ETAPE": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "LA+6MMv5*Av@O.NY.O|x",
+                                        "fields": {
+                                          "NUM": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description_debutant",
+        "id": "Gef7B;s(}rWcxOWNbLj3",
+        "x": -510,
+        "y": 30,
+        "inputs": {
+          "NOM_SM": {
+            "shadow": {
+              "type": "nom_tache_sm",
+              "id": "*S~*u2627cH]43*nv`Xc",
+              "fields": {
+                "NOM_TACHE_SM": "SM_TACHE_AVANT_MATCH"
+              }
+            }
+          },
+          "DESCR": {
+            "block": {
+              "type": "attendre",
+              "id": "F]H6UalPa8w,Q;;w14-~",
+              "icons": {
+                "comment": {
+                  "text": "On commence par attendre",
+                  "pinned": false,
+                  "height": 80,
+                  "width": 160
+                }
+              },
+              "fields": {
+                "UNITES": "MSEC"
+              },
+              "inputs": {
+                "VALEUR": {
+                  "shadow": {
+                    "type": "math_number",
+                    "id": "bve#3nToh,JSht1;,e6Q",
+                    "fields": {
+                      "NUM": 3000
+                    }
+                  }
+                }
+              },
+              "next": {
+                "block": {
+                  "type": "commande_servo_position_vitesse",
+                  "id": "rm6rlWswJ.PmBN-acwQ*",
+                  "inputs": {
+                    "INDEX_SERVO": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "?k@6FX]Q*{Qw`r}Lo$.K",
+                        "fields": {
+                          "NUM": 4
+                        }
+                      }
+                    },
+                    "POSITION": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "Z2AR,@ryE#you=(fSz|I",
+                        "fields": {
+                          "NUM": 1000
+                        }
+                      }
+                    },
+                    "VITESSE": {
+                      "shadow": {
+                        "type": "math_number",
+                        "id": "Nhv}GS[R0RKXN;#Bb{Ub",
+                        "fields": {
+                          "NUM": 9999
+                        }
+                      }
+                    }
+                  },
+                  "next": {
+                    "block": {
+                      "type": "attendre",
+                      "id": "aP.-sQ,JYKK~0yCHKk(7",
+                      "fields": {
+                        "UNITES": "MSEC"
+                      },
+                      "inputs": {
+                        "VALEUR": {
+                          "shadow": {
+                            "type": "math_number",
+                            "id": "W^zMc:a(xFpJKXSmn$x~",
+                            "fields": {
+                              "NUM": 500
+                            }
+                          }
+                        }
+                      },
+                      "next": {
+                        "block": {
+                          "type": "commande_servo_position_vitesse",
+                          "id": "Xh4weBm.mO~!b4{rBcD*",
+                          "inputs": {
+                            "INDEX_SERVO": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "Wf;cMP{Cr{VuGqhDGK7J",
+                                "fields": {
+                                  "NUM": 4
+                                }
+                              }
+                            },
+                            "POSITION": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "=7LSjkLOi*JTdUTM@Q,u",
+                                "fields": {
+                                  "NUM": 2000
+                                }
+                              }
+                            },
+                            "VITESSE": {
+                              "shadow": {
+                                "type": "math_number",
+                                "id": "{,YL*hxS7~+pE9WXa.|e",
+                                "fields": {
+                                  "NUM": 9999
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "attendre",
+                              "id": "#_=:]*mTv-}=tSsIJ|jm",
+                              "fields": {
+                                "UNITES": "MSEC"
+                              },
+                              "inputs": {
+                                "VALEUR": {
+                                  "shadow": {
+                                    "type": "math_number",
+                                    "id": "L.xyHCTutmQB$mw3#T3z",
+                                    "fields": {
+                                      "NUM": 500
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "commande_servo_position_vitesse",
+                                  "id": "vYv1ABUX:g%[u-x#2BI{",
+                                  "inputs": {
+                                    "INDEX_SERVO": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "B1}?mRY:+sQa#=.ZYG@[",
+                                        "fields": {
+                                          "NUM": 4
+                                        }
+                                      }
+                                    },
+                                    "POSITION": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "fI^k$2qZm7%(L^M!b|Sp",
+                                        "fields": {
+                                          "NUM": 1500
+                                        }
+                                      }
+                                    },
+                                    "VITESSE": {
+                                      "shadow": {
+                                        "type": "math_number",
+                                        "id": "3wvS7sv2WQzQY|n]L!`g",
+                                        "fields": {
+                                          "NUM": 9999
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "labotbox_context": {
+    "state_machine": [],
+    "moteurs": [],
+    "servos": [],
+    "values_servos": [],
+    "servos_ax": [],
+    "values_servos_ax": [],
+    "set_bot_state": [],
+    "switch": []
+  }
+}

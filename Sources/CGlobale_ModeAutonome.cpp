@@ -17,7 +17,17 @@
 void CGlobale::ModeAutonome(void)
 {
 	m_modelia.init();
-	m_modelia.setStrategie(STRATEGIE_01);
+
+// la stratégie dépend du type de PAMI
+#if (TYPE_PAMI == PAMI_TYPE_ECUREUIL_1)
+    m_modelia.setStrategie(STRATEGIE_PAMI_ECUREUIL_01);
+#elif (TYPE_PAMI == PAMI_TYPE_ECUREUIL_2)
+    m_modelia.setStrategie(STRATEGIE_PAMI_ECUREUIL_02);
+#elif (TYPE_PAMI == PAMI_TYPE_ECUREUIL_3)
+    m_modelia.setStrategie(STRATEGIE_PAMI_ECUREUIL_03);
+#else
+    m_modelia.setStrategie(STRATEGIE_PAMI_NINJA_01);
+#endif
 
     while(1) {
         if (tick) {

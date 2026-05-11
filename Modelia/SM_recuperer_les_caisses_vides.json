@@ -1,0 +1,40 @@
+{
+  "blocks": {
+    "languageVersion": 0,
+    "blocks": [
+      {
+        "type": "state_machine_expert",
+        "id": "MtO3g=3?IQ]_cmk`:o@3",
+        "x": 30,
+        "y": 10,
+        "fields": {
+          "STRAT_NOM": "0",
+          "NOM_SM": "recuperer_les_caisses_vides"
+        },
+        "inputs": {
+          "DESCR": {
+            "block": {
+              "type": "etat_expert",
+              "id": "(b{op;xsb[$lfr;|ry%e",
+              "fields": {
+                "NOM": "ETAT_1",
+                "LOCK_NOM": false,
+                "IS_DUMMY": false
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "labotbox_context": {
+    "state_machine": [],
+    "moteurs": [],
+    "servos": [],
+    "values_servos": [],
+    "servos_ax": [],
+    "values_servos_ax": [],
+    "set_bot_state": [],
+    "switch": []
+  }
+}

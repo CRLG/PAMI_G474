@@ -41,19 +41,25 @@ Makefile
 
 ../Modelia/ia.cpp
 ../Modelia/sm_autotest.cpp
-../Modelia/sm_blockly_debutant.cpp
 ../Modelia/sm_datasinterface.cpp
 ../Modelia/sm_inputsinterface.cpp
 ../Modelia/sm_outputsinterface.cpp
 ../Modelia/sm_sequenceur.cpp
+../Modelia/sm_blockly_debutant.cpp
+../Modelia/sm_recuperer_les_caisses_vides.cpp
+../Modelia/sm_remplir_les_frigos.cpp
+../Modelia/sm_vider_les_frigos.cpp
 
 ../Modelia/ia.h
 ../Modelia/sm_autotest.h
-../Modelia/sm_blockly_debutant.h
 ../Modelia/sm_datasinterface.h
 ../Modelia/sm_inputsinterface.h
 ../Modelia/sm_outputsinterface.h
 ../Modelia/sm_sequenceur.h
+../Modelia/sm_blockly_debutant.h
+../Modelia/sm_recuperer_les_caisses_vides.h
+../Modelia/sm_remplir_les_frigos.h
+../Modelia/sm_vider_les_frigos.h
 
 
 ../ext/CppRobLib/ConsoleInteractiveMenu/console_interaction.cpp
